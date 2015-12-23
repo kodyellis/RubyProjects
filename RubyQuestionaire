@@ -1,0 +1,106 @@
+def program_start
+  questionaire_name
+  questionaire_age
+  questionaire_books
+  questionaire_movies
+  questionaire_ratings
+end
+
+
+ 
+def questionaire_name
+  puts "Hello there, what's your name?"
+  $your_name=gets.chomp
+  puts "Your name is #{$your_name}."  
+end
+
+
+
+def questionaire_age
+  $current_year =Time.now.year.to_i
+  puts "What year were born in?"
+  $birth_year = gets.chomp
+  $birth_year = $birth_year.to_i  
+  $your_age = $current_year - $birth_year
+  puts "You are,or going to be soon,#{$your_age} years old.\n\n"
+end
+
+
+
+def questionaire_books
+  puts "What are your top 3 books?"
+  $book1=gets.chomp
+  $book2=gets.chomp
+  $book3=gets.chomp
+  puts "Okay you're top 3 books are:#{$book1},#{$book2},and #{$book3}"
+end
+
+
+
+def questionaire_movies
+  puts "What are your top 3 movies?"
+  $movie1=gets.chomp
+  $movie2=gets.chomp
+  $movie3=gets.chomp
+  puts "Okay you're top 3 movies are: #{$movie1},#{$movie2},and #{$movie3}"
+end
+
+
+#Variables by default are local in Ruby
+#They can only be called in their own method.
+#I must add a $ sign in front of the variable name to indicate  that it's global(can be used outside the method,etc)
+
+
+#When I learn while loops, I can modify the following method so that if the user input a number greater than 5, the
+#system will always decline that number instead of just once.
+
+def questionaire_ratings
+  puts "How do you rate #{$movie1}? (1,2,3,4, or 5?)"
+  $movie1_rating = gets.chomp.to_i
+  if $movie1_rating > 5
+    puts "I'm sorry,your rating was not processed, please follow instructions." 
+	puts "How do you rate #{$movie1}?(1,2,3,4, or 5?)"
+    $movie1_rating = gets
+  end
+  
+  puts "How do you rate #{$movie2}? (1,2,3,4, or 5?)"
+  $movie2_rating = gets.chomp.to_i
+  if $movie2_rating > 5
+    puts "I'm sorry,your rating was not processed, please follow instructions." 
+	puts "How do you rate #{$movie2}?(1,2,3,4, or 5?)"
+    $movie2_rating = gets
+  end
+  
+  puts "How do you rate #{$movie3}? (1,2,3,4, or 5?)"
+  $movie3_rating = gets.chomp.to_i
+  if $movie3_rating > 5
+    puts "I'm sorry,your rating was not processed, please follow instructions." 
+	puts "How do you rate #{$movie3}?(1,2,3,4, or 5?)"
+    $movie3_rating = gets
+  end
+end
+
+
+def stat_screen 
+  puts %Q( This is your stat screen:\n
+  Name: #{$your_name}
+  Current Year: #{$current_year}
+  Birth_Year: #{$birth_year}
+  Age: #{$your_age}
+  First Book: #{$book1}
+  Second Book: #{$book2}
+  Third Book: #{$book3}
+  First Movie: #{$movie1}
+  Second Movie: #{$movie2}
+  Third Movie: #{$movie3}
+  #{$movie1} Movie Rating: #{$movie1_rating}
+  #{$movie2} Movie Rating: #{$movie2_rating}
+  #{$movie3} Movie Rating: #{$movie3_rating}
+  )
+end
+
+#Unlike in JavaScript, I have to call the methods first. They won't just autorun from top to bottom.
+
+program_start
+stat_screen
+puts "Well, thank you for filling out this small sample_questionare!!!!"
