@@ -1,0 +1,57 @@
+#Ruby Grocery List
+def create_list
+  print "What is the list name? "
+  name = gets.chomp
+
+  hash = { "name" => name, "items" => Array.new }
+  return hash
+end
+#gets list name, and creates a hash with two keys in it.
+
+
+def add_list_item
+  print "What is the item called? "
+  item_name = gets.chomp
+
+  print "How much? "
+  quantity = gets.chomp.to_i
+
+  hash = { "name" => item_name, "quantity" => quantity }
+  return hash
+end
+
+
+#this is the functions of adding items to the list
+#The hashes identifiers 
+def print_separator(character="-")
+  puts character * 80
+end
+
+
+#Calling the name variable inside of list with 'name', otherwise only way to do so would be to make them global variables.
+#Print separator=lots of dashes
+def print_list(list)
+  puts "List: #{list['name']}"
+  print_separator()
+  
+  list["items"].each do |item|
+    puts "\tItem: " + item['name'] +"\t\t\t" +
+	    "Quantity: " + item['quantity'].to_s
+	print_separator()
+  end
+  print_separator()
+end
+#That Last print separator was empty and felt a little out of place
+
+
+#shortcut to first function
+list = create_list()
+
+puts "Great! Add some items to your list."
+
+list['items'].push(add_list_item())
+list['items'].push(add_list_item())
+list['items'].push(add_list_item())
+
+puts "\nHere's your list:\n"
+print_list(list)
