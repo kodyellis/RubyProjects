@@ -1,3 +1,6 @@
+#This first method is unnessary. At the end I could have just 
+#called the methods one by one. I only do it for clean code purposes.
+
 def program_start
   questionaire_name
   questionaire_age
