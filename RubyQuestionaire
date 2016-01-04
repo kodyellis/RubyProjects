@@ -1,5 +1,5 @@
-#This first method is unnessary. At the end I could have just 
-#called the methods one by one. I only do it for clean code purposes.
+#The first method, program_start, is unnessary. At the end of this file, after the last method stat_screen, I could have just 
+#called all the other methods one by one. I only created program_start for clean code purposes.
 
 def program_start
   questionaire_name
